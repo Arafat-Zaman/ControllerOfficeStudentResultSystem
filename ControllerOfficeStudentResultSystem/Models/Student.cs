@@ -16,17 +16,17 @@ namespace ControllerOfficeStudentResultSystem.Models
 		[Column(TypeName = "nvarchar(250)")]
 		[Required(ErrorMessage = "This field is required")]
 		[DisplayName("Subject Name")]
-		public string SubjectName { get; set; }
+		public SubjectNamesListEnum SubjectName { get; set; }
 
 		[Column(TypeName = "nvarchar(250)")]
 		[Required]
 		[DisplayName("Result Year")]
-		public string Year { get; set; }
+		public YearListEnum Year { get; set; }
 
 		[Column(TypeName = "nvarchar(250)")]
 		[Required]
 		[DisplayName("Program Name")]
-		public string Program { get; set; }
+		public ProgramListEnum Program { get; set; }
 
 		[Column(TypeName = "nvarchar(250)")]
 		[Required]

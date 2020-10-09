@@ -5,10 +5,15 @@ using System.Threading.Tasks;
 
 namespace ControllerOfficeStudentResultSystem.Models
 {
-	public interface IStudentRepository
+	public enum SubjectNamesListEnum
 	{
-		Student GetStudent(int id);
-		IEnumerable<Student> GetAllStudents();
-		Student Add(Student student);
+		None,
+		Software_Engineering,
+		Genetics_Engineerg,
+		Computer_Science,
+		Microbiology,
+		Physics,
+		Chemistry,
+		Botany
 	}
 }

@@ -5,10 +5,12 @@ using System.Threading.Tasks;
 
 namespace ControllerOfficeStudentResultSystem.Models
 {
-	public interface IStudentRepository
+	public enum ProgramListEnum
 	{
-		Student GetStudent(int id);
-		IEnumerable<Student> GetAllStudents();
-		Student Add(Student student);
+		None,
+		BSc,
+		MSc,
+		BBA,
+		MBA
 	}
 }
