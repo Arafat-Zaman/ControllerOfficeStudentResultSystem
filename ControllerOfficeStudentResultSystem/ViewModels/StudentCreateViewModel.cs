@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ControllerOfficeStudentResultSystem.Models;
+using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
@@ -6,13 +8,10 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace ControllerOfficeStudentResultSystem.Models
+namespace ControllerOfficeStudentResultSystem.ViewModels
 {
-	public class Student
+	public class StudentCreateViewModel
 	{
-		[Key]
-		public int ID { get; set; }
-
 		[Column(TypeName = "nvarchar(250)")]
 		[Required(ErrorMessage = "This field is required")]
 		[DisplayName("Subject Name")]
@@ -31,6 +30,6 @@ namespace ControllerOfficeStudentResultSystem.Models
 		//[Column(TypeName = "nvarchar(250)")]
 		//[Required]
 		[DisplayName("File Location")]
-		public string ExcelPath { get; set; }
+		public IFormFile ExcelFile { get; set; }
 	}
 }

@@ -13,9 +13,9 @@ namespace ControllerOfficeStudentResultSystem.Models
 		{
 			_studentList = new List<Student>()
 			{
-				new Student(){ID = 1, SubjectName = SubjectNamesListEnum.Software_Engineering, Year = YearListEnum._2020, Program = ProgramListEnum.BBA, Location = "Selected"},
-				new Student(){ID = 2, SubjectName = SubjectNamesListEnum.Genetics_Engineerg, Year = YearListEnum._2021, Program = ProgramListEnum.BSc, Location = "Selected"},
-				new Student(){ID = 3, SubjectName = SubjectNamesListEnum.Physics, Year = YearListEnum._2022, Program = ProgramListEnum.MBA, Location = "Selected"}
+				new Student(){ID = 1, SubjectName = SubjectNamesListEnum.Software_Engineering, Year = YearListEnum._2020, Program = ProgramListEnum.BBA},
+				new Student(){ID = 2, SubjectName = SubjectNamesListEnum.Genetics_Engineerg, Year = YearListEnum._2021, Program = ProgramListEnum.BSc},
+				new Student(){ID = 3, SubjectName = SubjectNamesListEnum.Physics, Year = YearListEnum._2022, Program = ProgramListEnum.MBA}
 
 			};
 		}
@@ -24,6 +24,16 @@ namespace ControllerOfficeStudentResultSystem.Models
 		{
 			student.ID = _studentList.Max(e=>e.ID) + 1;
 			_studentList.Add(student);
+			return student;
+		}
+
+		public Student Delete(int ID)
+		{
+			Student student = _studentList.FirstOrDefault(e => e.ID == ID);
+			if(student!=null)
+			{
+				_studentList.Remove(student);
+			}
 			return student;
 		}
 
@@ -37,5 +47,18 @@ namespace ControllerOfficeStudentResultSystem.Models
 		public Student GetStudent(int ID)
 		{
 			return _studentList.FirstOrDefault(e=>e.ID==ID);		}
+
+		public Student Update(Student studentChanges)
+		{
+			Student student = _studentList.FirstOrDefault(e => e.ID == studentChanges.ID);
+			if (student != null)
+			{
+				student.SubjectName = studentChanges.SubjectName;
+				student.Year = studentChanges.Year;
+				student.Program = studentChanges.Program;
+				
+			}
+			return student;
 		}
+	}
 }

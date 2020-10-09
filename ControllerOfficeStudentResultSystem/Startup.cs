@@ -9,6 +9,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using ControllerOfficeStudentResultSystem.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace ControllerOfficeStudentResultSystem
 {
@@ -24,8 +25,11 @@ namespace ControllerOfficeStudentResultSystem
 		// For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
 		public void ConfigureServices(IServiceCollection services)
 		{
+			services.AddDbContextPool<AppDbContext>(
+				options => options.UseSqlServer(_config.GetConnectionString("StudentDBConnection")));
+
 			services.AddMvc().AddXmlSerializerFormatters();
-			services.AddSingleton<IStudentRepository, MockStundentRepository>();
+			services.AddScoped<IStudentRepository, SQLStudentRepository>();
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

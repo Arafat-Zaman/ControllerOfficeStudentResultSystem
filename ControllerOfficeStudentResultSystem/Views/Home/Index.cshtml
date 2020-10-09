@@ -10,11 +10,13 @@
 
     @foreach (var student in Model)
     {
-    <div class="card m-3">
+        var excelPath = "~/Images/" + (student.ExcelPath ?? "noimage.jpg");
+
+    <div class="card m-3" style="min-width: 18rem; max-width:30.5%">
         <div class="card-header">
             <h3>@student.SubjectName</h3>
         </div>
-        <img class="card-img-top" src="~/images/du.jpg" asp-append-version="true"/>
+        <img class="card-img-top imageThumbnail" src="~/images/du.jpg" asp-append-version="true"/>
         <div class="card-footer text-center">
             @*<a href="/home/details/@student.ID">View</a>*@
             <a asp-controller="home" asp-action="details" asp-route-id="@student.ID"
