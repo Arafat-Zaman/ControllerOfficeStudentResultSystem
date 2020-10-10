@@ -13,18 +13,22 @@
             </div>
 
             <div class="card-body text-center">
-                <img class="card-img-top" src="@excelPath" asp-append-version="true"/>
+                @* <img class="card-img-top" src="@excelPath" asp-append-version="true"/>*@
 
-                <h4>ID: @Model.Student.ID</h4>
-                <h4>SubjectName: @Model.Student.SubjectName</h4>
+                @*<h4>ID: @Model.Student.ID</h4>
+        <h4>SubjectName: @Model.Student.SubjectName</h4>*@
                 <h4>Year: @Model.Student.Year</h4>
                 <h4>Program: @Model.Student.Program</h4>
-                <h5>File:@Model.Student.ExcelPath </h5>
+                @*<h5>File:@Model.Student.ExcelPath </h5>*@
+                <h5>File:</h5>
+
+                <a asp-controller="home" asp-action="download" class="btn btn-primary">Download</a>
+
             </div>
 
             <div class="card-footer text-center">
                 <a asp-controller="home" asp-action="index" class="btn btn-primary">Back</a>
-                <a href="#" class="btn btn-primary">Edit</a>
+                <a asp-action="Edit" asp-route-id="@Model.Student.ID" asp-controller="home" class="btn btn-primary">Edit</a>
                 <a href="#" class="btn btn-danger">Delete</a>
             </div>
 

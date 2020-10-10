@@ -6,26 +6,55 @@
 }
 
 
-<div class="card-deck">
+<table class="table table-hover" id="Students_table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.SubjectName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Year)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Program)
+            </th>
+           
+            <th>
+                <a asp-action="Create" class="btn btn-outline-success"><i class="far fa-plus-square"></i> Add Student Result</a>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model.Count() == 0)
+        {
+            <tr>
+                <td colspan="4">No records matched with search criteria. Please try again</td>
+            </tr>
+        }
+        else
+        {
+            foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SubjectName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Year)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Program)
+                    </td>
+                    
+                    <td>
+                        <a asp-action="edit" asp-route-id="@item.ID" asp-controller="home"><i class="fa fa-marker fa-lg"></i> Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.ID" class="text-danger ml-1"><i class="fa fa-trash-alt fa-lg"></i> Delete</a>
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
 
-    @foreach (var student in Model)
-    {
-        var excelPath = "~/Images/" + (student.ExcelPath ?? "noimage.jpg");
-
-    <div class="card m-3" style="min-width: 18rem; max-width:30.5%">
-        <div class="card-header">
-            <h3>@student.SubjectName</h3>
-        </div>
-        <img class="card-img-top imageThumbnail" src="~/images/du.jpg" asp-append-version="true"/>
-        <div class="card-footer text-center">
-            @*<a href="/home/details/@student.ID">View</a>*@
-            <a asp-controller="home" asp-action="details" asp-route-id="@student.ID"
-               class="btn btn-primary m-1">View</a>
-            <a href="#" class="btn btn-primary m-1">Edit</a>
-            <a href="#" class="btn btn-danger m-1">Delete</a>
-        </div>
-    </div>
-    }
-
-</div>
 
