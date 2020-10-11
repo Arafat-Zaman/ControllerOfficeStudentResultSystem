@@ -22,7 +22,7 @@
                 @*<h5>File:@Model.Student.ExcelPath </h5>*@
                 <h5>File:</h5>
 
-                <a asp-controller="home" asp-action="download" class="btn btn-primary">Download</a>
+                <a asp-controller="home" asp-action="download" asp-route-filename="@Model.Student.ExcelPath" class="btn btn-primary">Download</a>
 
             </div>
 

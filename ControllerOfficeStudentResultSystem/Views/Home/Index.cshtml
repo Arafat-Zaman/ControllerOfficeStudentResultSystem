@@ -1,10 +1,25 @@
 ﻿@model IEnumerable<Student>
 
-@{ 
-  
+@{
+
     ViewBag.Title = "Student List";
 }
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+  $("#myInput").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#myTable tr").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+</script>
 
+<h2>Search:</h2>
+<p>Search with Subject Name:</p>
+<input id="myInput" type="text" placeholder="Search..">
+<br><br>
 
 <table class="table table-hover" id="Students_table">
     <thead>
@@ -18,22 +33,15 @@
             <th>
                 @Html.DisplayNameFor(model => model.Program)
             </th>
-           
+
             <th>
                 <a asp-action="Create" class="btn btn-outline-success"><i class="far fa-plus-square"></i> Add Student Result</a>
             </th>
         </tr>
     </thead>
-    <tbody>
-        @if (Model.Count() == 0)
-        {
-            <tr>
-                <td colspan="4">No records matched with search criteria. Please try again</td>
-            </tr>
-        }
-        else
-        {
-            foreach (var item in Model)
+    <tbody id="myTable">
+        
+            @foreach (var item in Model)
             {
                 <tr>
                     <td>
@@ -45,14 +53,14 @@
                     <td>
                         @Html.DisplayFor(modelItem => item.Program)
                     </td>
-                    
+
                     <td>
                         <a asp-action="edit" asp-route-id="@item.ID" asp-controller="home"><i class="fa fa-marker fa-lg"></i> Edit</a> |
                         <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
                         <a asp-action="Delete" asp-route-id="@item.ID" class="text-danger ml-1"><i class="fa fa-trash-alt fa-lg"></i> Delete</a>
                     </td>
                 </tr>
-            }
+            
         }
     </tbody>
 </table>
