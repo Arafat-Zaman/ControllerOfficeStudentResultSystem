@@ -10,10 +10,7 @@
     <div class="form-group row">
         <label asp-for="SubjectName" class="col-sm-2 col-form-label"></label>
         <div class="col-sm-10">
-            <select asp-for="SubjectName" class="custom-select mr-sm-2"
-                    asp-items="Html.GetEnumSelectList<SubjectNamesListEnum>()">
-                <option value="">Please Select</option>
-            </select>
+            <input asp-for="SubjectName" class="form-control" placeholder="Please Enter Subject Name" />
             <span asp-validation-for="SubjectName" class="text-danger"></span>
 
         </div>
@@ -21,10 +18,7 @@
     <div class="form-group row">
         <label asp-for="Year" class="col-sm-2 col-form-label"></label>
         <div class="col-sm-10">
-            <select asp-for="Year" class="custom-select mr-sm-2"
-                    asp-items="Html.GetEnumSelectList<YearListEnum>()">
-                <option value="">Please Select</option>
-            </select>
+            <input asp-for="Year" class="form-control" placeholder="Please Enter Year" />
             <span asp-validation-for="Year" class="text-danger"></span>
 
         </div>
@@ -32,10 +26,7 @@
     <div class="form-group row">
         <label asp-for="Program" class="col-sm-2 col-form-label"></label>
         <div class="col-sm-10">
-            <select asp-for="Program" class="custom-select mr-sm-2"
-                    asp-items="Html.GetEnumSelectList<ProgramListEnum>()">
-                <option value="">Please Select</option>
-            </select>
+            <input asp-for="Program" class="form-control" placeholder="Please Enter Program Name" />
             <span asp-validation-for="Program" class="text-danger"></span>
 
         </div>

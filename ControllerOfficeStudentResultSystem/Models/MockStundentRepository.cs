@@ -13,9 +13,8 @@ namespace ControllerOfficeStudentResultSystem.Models
 		{
 			_studentList = new List<Student>()
 			{
-				new Student(){ID = 1, SubjectName = SubjectNamesListEnum.Software_Engineering, Year = YearListEnum._2020, Program = ProgramListEnum.BBA},
-				new Student(){ID = 2, SubjectName = SubjectNamesListEnum.Genetics_Engineerg, Year = YearListEnum._2021, Program = ProgramListEnum.BSc},
-				new Student(){ID = 3, SubjectName = SubjectNamesListEnum.Physics, Year = YearListEnum._2022, Program = ProgramListEnum.MBA}
+				//new Student(){ID = 1, SubjectName = "Software_Engineering", Year = "2020", Program = "BSc"}
+				
 
 			};
 		}

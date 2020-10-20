@@ -14,17 +14,10 @@ namespace ControllerOfficeStudentResultSystem.Models
 				new Student
 				{
 					ID = 1,
-					SubjectName = SubjectNamesListEnum.Physics,
-					Year = YearListEnum._2020,
-					Program = ProgramListEnum.BSc
+					SubjectName = "Software_Engineering",
+					Year = "2020",
+					Program = "BSc"
 
-				},
-				new Student
-				{
-					ID = 2,
-					SubjectName = SubjectNamesListEnum.Botany,
-					Year = YearListEnum._2020,
-					Program = ProgramListEnum.BSc
 				}
 				);
 		}

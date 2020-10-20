@@ -44,7 +44,7 @@ namespace ControllerOfficeStudentResultSystem
 			//app.UseMvcWithDefaultRoute();
 			app.UseMvc(routes =>
 			{
-				routes.MapRoute("default", "{controller=Home}/{action=Index}/{ID?}");
+				routes.MapRoute("default", "{controller=Home}/{action=IndexPage}/{ID?}");
 			}
 			);
 

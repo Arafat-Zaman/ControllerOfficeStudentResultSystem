@@ -17,7 +17,7 @@ $(document).ready(function(){
 </script>
 
 <h2>Search:</h2>
-<p>Search with Subject Name:</p>
+<p>Search with Subject/Program:</p>
 <input id="myInput" type="text" placeholder="Search..">
 <br><br>
 
@@ -57,7 +57,7 @@ $(document).ready(function(){
                     <td>
                         <a asp-action="edit" asp-route-id="@item.ID" asp-controller="home"><i class="fa fa-marker fa-lg"></i> Edit</a> |
                         <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
-                        <a asp-action="Delete" asp-route-id="@item.ID" class="text-danger ml-1"><i class="fa fa-trash-alt fa-lg"></i> Delete</a>
+                       @* <a asp-action="Delete" asp-route-id="@item.ID" class="text-danger ml-1"><i class="fa fa-trash-alt fa-lg"></i> Delete</a>*@
                     </td>
                 </tr>
             

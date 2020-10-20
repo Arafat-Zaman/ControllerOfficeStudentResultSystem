@@ -23,6 +23,11 @@ namespace ControllerOfficeStudentResultSystem.Controllers
 			this.hostingEnvironment = hostingEnvironment;
 		}
 
+		public IActionResult IndexPage()
+		{
+			return View();
+		}
+
 		public ViewResult Index(string searchBy, string search)
 		{		
 
@@ -141,7 +146,11 @@ namespace ControllerOfficeStudentResultSystem.Controllers
 				await stream.CopyToAsync(memory);
 			}
 			memory.Position = 0;
+
 			return File(memory, GetContentType(path), Path.GetFileName(path));
+
+			//return File(memory, GetContentType(path), Path.GetFileName(path).Split('_').Last());
+
 		}
 
 		private string GetContentType(string path)

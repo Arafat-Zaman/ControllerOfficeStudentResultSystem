@@ -15,17 +15,17 @@ namespace ControllerOfficeStudentResultSystem.ViewModels
 		[Column(TypeName = "nvarchar(250)")]
 		[Required(ErrorMessage = "This field is required")]
 		[DisplayName("Subject Name")]
-		public SubjectNamesListEnum SubjectName { get; set; }
+		public string SubjectName { get; set; }
 
 		[Column(TypeName = "nvarchar(250)")]
 		[Required]
 		[DisplayName("Result Year")]
-		public YearListEnum Year { get; set; }
+		public string Year { get; set; }
 
 		[Column(TypeName = "nvarchar(250)")]
 		[Required]
 		[DisplayName("Program Name")]
-		public ProgramListEnum Program { get; set; }
+		public string Program { get; set; }
 
 		//[Column(TypeName = "nvarchar(250)")]
 		//[Required]
